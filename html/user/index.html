@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <script src="../../js/function.js"></script>
+    <script src="../../js/turistas.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Esto es Jerez</title>
+</head>
+
+<body>
+    <section>
+        <div data-component="navbar">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top custom-navbar">
+                <div class="container-fluid">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="nav-intro">
+                                <img class="me-2" src="../../img/logo.png" alt="" width="50" height="48">
+                                Inicio
+                            </a>
+                        </li>
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" id="nav-news">Noticias</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="nav-jerez">¿Qué hacer en Jerez?</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        ¿Qué ofrece Jerez?
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <li><a class="dropdown-item" id="nav-products">Productos y Artesanias</a></li>
+                                        <li><a class="dropdown-item" id="nav-services">Servicios</a></li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+                <ul class="navbar-nav ms-auto me-2">
+                    <li class="nav-item">
+                        <a class="nav-link" id="nav-form">Contactanos</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+
+    <div class="wp-content">
+        <div class="container-fluid" id="content"></div>
+    </div>
+
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="py-4 footer-container">
+            <div class="row">
+                <div class="col-lg-9 col-md-12 mb-4 mb-md-0 px-5">
+                    <h5 class="text-uppercase">Departamento de Turismo Jerez Zacatecas</h5>
+                    <p>
+                        El Departamento de Turismo Municipal del Pueblo Mágico de Jerez, es un organismo al interior del
+                        Ayuntamiento, que depende directamente de la Dirección de Desarrollo Económico y Social y que se
+                        encuentra encargado de todos los proyectos relacionadas con esta actividad económica, además de
+                        ser el encargado del trabajo de integración de expedientes para la conservación del nombramiento
+                        que mantiene vigente a Jerez dentro del Programa de Pueblos Mágicos, mismo que se obtuvo en el
+                        año 2007.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Contacto</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <i class="fas fa-envelope me-3"></i>turismo.jerez@gmail.com
+                        </li>
+                        <li>
+                            <i class="fas fa-phone me-3"></i>(+52) 494 94 7 7202
+                        </li>
+                        <li>
+                            <i class="fas fa-home me-3"></i>Calle San Luis No. 70 del Centro Histórico, Jerez, Zac
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-0" style="background-color: #272727;">
+            <a id="scrollTopBtn" class="text-a text-center">Ir al inicio</a>
+        </div>
+
+        <div class="toast-container">
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000">
+                <div class="toast-header">
+                    <strong class="me-auto" id="title-toast"></strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+                </div>
+                <div class="toast-body" id="content-toast">
+                   
+                </div>
+            </div>
+        </div>
+
+
+</body>
+
+</html>
+
+<script>
+    addClassesToNav();
+    backToUp();
+
+    $("#nav-intro").click(function () {
+        openView("intro")
+    });
+    $("#nav-news").click(function () {
+        openView("news")
+    });
+    $("#nav-jerez").click(function () {
+        openView("jerez")
+    });
+    $("#nav-products").click(function () {
+        openView("product")
+    });
+    $("#nav-services").click(function () {
+        openView("services")
+    });
+    $("#nav-form").click(function () {
+        openView("formulario")
+    });
+    $("#nav-intro").click();
+
+
+</script>

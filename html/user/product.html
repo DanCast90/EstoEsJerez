@@ -1,0 +1,79 @@
+<div class="p-3 mt-4 mx-auto">
+    <div class="desc-container">
+        <div class="child">
+            <h1 class="text-center">Los productos que ofrecen nuestros Artesanos y Productores</h1>
+        </div>
+    </div>
+
+    <div class="card-container"></div>
+
+
+</div>
+
+<script>
+  
+getDataArticles();
+    
+cardContainer = document.querySelector('.card-container');
+
+
+function createCard(data) {
+  const card = document.createElement('div');
+  card.classList.add('card');
+
+  const image = document.createElement('img');
+  image.src = data.url;
+  image.classList.add('card-image');
+  card.appendChild(image);
+
+  const cardBody = document.createElement('div');
+  cardBody.classList.add('card-body', 'd-flex', 'flex-column');
+
+  const title = document.createElement('h3');
+  title.textContent = data.nombre;
+  title.classList.add('text-dark', 'mb-3');
+  cardBody.appendChild(title);
+
+  const description = document.createElement('p');
+  description.textContent = data.descripcion;
+  description.classList.add('text-dark', 'flex-grow-1');
+  cardBody.appendChild(description);
+
+  const buttonContainer = document.createElement('div');
+  buttonContainer.classList.add('d-flex','justify-content-center');
+
+  const button = document.createElement('button');
+  button.classList.add('btn', 'btn-primary', 'btn-custom', 'w-70', 'text-light');
+  button.textContent = 'Mas informacion';
+        button.addEventListener("click", () => {
+            openOneArticle(data.ID, "moreP");
+        });
+  buttonContainer.appendChild(button);
+
+  cardBody.appendChild(buttonContainer);
+  card.appendChild(cardBody);
+
+  return card;
+}
+
+
+function createCards(cardsData) {
+  cardsData.forEach(data => {
+    const card = createCard(data);
+    cardContainer.appendChild(card);
+  });
+}
+
+
+function getDataArticles() {
+    $.ajax({
+        url: '../../php/producto/getAll.php',
+        method: 'POST',
+        dataType: 'json',
+        success: function (response) {
+            createCards(response);
+        }
+    });
+}
+
+</script>

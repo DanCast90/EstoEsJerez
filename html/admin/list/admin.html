@@ -1,0 +1,32 @@
+<div class="p-3 mt-4 mx-auto">
+    <div class="desc-container d-flex justify-content-center justify-content-md-between">
+        <div class="child">
+            <h1 class="text-center">Listado Administradores</h1>
+        </div>
+        <div class="child">
+            <button class="btn btn-danger btn-custom mx-2" id="new-admin">Agregar <i class="fa-solid fa-plus ml-2"></i></button>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="desc-container">
+        <div class="child-desc" id="tabla-container">
+
+        </div>
+    </div>
+</div>
+
+<script>
+    headers=['Nombre', 'Apellidos', 'RFC', 'Acciones'];
+    folder="user";
+    getData(headers,folder,"admin");
+
+    $("#new-admin").click(function(){
+        localStorage.setItem("id", 0);
+        openViewA("admin","crud",0);
+    });
+
+</script>

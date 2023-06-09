@@ -1,0 +1,89 @@
+<div class="p-3 mt-4 mx-auto">
+    <div class="desc-container d-flex justify-content-center justify-content-md-between">
+        <div class="child">
+        <button class="btn btn-danger btn-custom mx-2" id="back">Regresar <i class="fa-solid fa-arrow-left"></i></button>
+        </div>
+        <div class="child">
+            <h1 class="text-center">Servicios</h1>
+        </div>
+    </div>
+    <div class="desc-container">
+        <div class="container">
+            <form id="myForm" enctype="multipart/form-data">
+                <div class="row">
+                    
+                    <div class="col-md-6 offset-md-6 mb-3">
+                        <label for="photo" class="form-label">Foto</label>
+                        <input type="file" class="form-control" id="photo" accept="image/*"
+                            onchange="previewImage(event)">
+                        <div class="text-center mt-2">
+                            <img id="preview" class="preview-image" src="#" alt="Vista previa de la imagen">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="tipoServicio" class="form-label">Tipo de Servicio</label>
+                        <input type="text" class="form-control" id="tipoServicio" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mb-6">
+                        <label for="descripcion" class="form-label">Descripcion</label>
+                        <textarea  class="form-control" id="descripcion" placeholder="Descripcion" required rows="4"></textarea>
+                    </div>
+                </div>
+                </div>
+                <div class="text-center my-2">
+                    <button type="button" class="btn btn-danger btn-custom mx-2" id="btn-save">Guardar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<div class="toast-container">
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true"
+      data-bs-delay="3000">
+      <div class="toast-header">
+        <strong class="me-auto" id="title-toast"></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+      </div>
+      <div class="toast-body" id="content-toast">
+
+      </div>
+    </div>
+  </div>
+
+<script>
+    
+    folder="servicio";
+    idTesting = localStorage.getItem("id");
+    if(idTesting!=0){
+        loadServices(folder);
+    }
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var preview = document.getElementById('preview');
+            preview.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+    $("#btn-save").click(function(){
+       saveService(folder);  
+    });
+
+    $("#back").click(function(){
+        localStorage.setItem("id", 0);
+        openViewA("servicios","list",0);  
+    });
+   
+
+    
+</script>
